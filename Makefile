@@ -2,8 +2,9 @@ LFLAGS += `pkg-config --libs gsl`
 CXXFLAGS += `pkg-config --cflags gsl`
 
 LFLAGS += -L. -lgicp -Lann_1.1.1/lib -lANN -lgsl -lgslcblas \
-	  -lboost_program_options -lboost_system -lstdc++ 
+	  -lboost_program_options -lboost_system -lstdc++
 CXXFLAGS += -O3 -I./ann_1.1.1/include/ANN
+CXXFLAGS += -fPIC
 
 LINK = g++
 CXX = g++
@@ -13,6 +14,7 @@ SOURCES = optimize.cpp gicp.cpp bfgs_funcs.cpp scan.cpp transform.c scan2ascii.c
 BINARIES = test_gicp scan2ascii
 
 TARGETS = libgicp.a test_gicp scan2ascii
+
 
 .SUFFIXES:
 .SUFFIXES: .o .c .cpp .a
@@ -33,5 +35,5 @@ clean:
 $(BINARIES):
 	$(LINK) -o $@ $^ $(LFLAGS)
 
-.cpp.o: 
+.cpp.o:
 	$(CXX) $(CXXFLAGS) -c $< -o $@

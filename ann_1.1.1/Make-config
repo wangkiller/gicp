@@ -72,53 +72,8 @@ linux-g++:
 	$(MAKE) targets \
 	"ANNLIB = libANN.a" \
 	"C++ = g++" \
-	"CFLAGS = -O3" \
+	"CFLAGS = -O3 -fPIC" \
 	"MAKELIB = ar ruv" \
-	"RANLIB = true"
-
-#					Mac OS X using g++
-macosx-g++:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = g++" \
-	"CFLAGS = -O3" \
-	"MAKELIB = libtool -static -o " \
-	"RANLIB = true"
-
-#					SunOS5
-sunos5:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = CC" \
-	"CFLAGS = -O" \
-	"MAKELIB = ar ruv" \
-	"RANLIB = true"
-
-#					SunOS5 with shared libraries
-sunos5-sl:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = CC" \
-	"CFLAGS = -Kpic -O" \
-	"MAKELIB = ld -G -o" \
-	"RANLIB = true"
-
-#					SunOS5 with g++
-sunos5-g++:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = g++" \
-	"CFLAGS = -O3" \
-	"MAKELIB = ar ruv" \
-	"RANLIB = true"
-
-#					SunOS5 with g++ and shared libraries
-sunos5-g++-sl:
-	$(MAKE) targets \
-	"ANNLIB = libANN.so" \
-	"C++ = g++" \
-	"CFLAGS = -fpic -O3" \
-	"MAKELIB = ld -G -o" \
 	"RANLIB = true"
 
 #-----------------------------------------------------------------------
@@ -141,54 +96,5 @@ authors-perf:
 	"C++ = g++" \
 	"CFLAGS = -O3 -DANN_PERF -Wall" \
 	"MAKELIB = ar ruv" \
-	"RANLIB = true"
-
-#-----------------------------------------------------------------------
-# Some older ones that I have not tested with the latest version.
-#-----------------------------------------------------------------------
-
-sgi:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = CC -ansi" \
-	"CFLAGS = -O2" \
-	"MAKELIB = ar ruv" \
-	"RANLIB = true"
-
-#					DEC Alpha with g++
-alpha-g++:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = g++" \
-	"CFLAGS = -O3" \
-	"MAKELIB = ar ruv" \
-	"RANLIB = ranlib"
-
-#					SunOS4
-sunos4:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = CC" \
-	"CFLAGS = -O" \
-	"MAKELIB = ar ruv" \
-	"RANLIB = ranlib"
-
-#					SunOS4 with g++
-sunos4-g++:
-	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
-	"C++ = g++" \
-	"CFLAGS = -O3" \
-	"MAKELIB = ar ruv" \
-	"RANLIB = ranlib"
-
-#					SunOS4 with g++ and shared libraries
-sunos4-g++-sl:
-	$(MAKE) targets \
-	"ANNLIB = libANN.so" \
-	"C++ = g++" \
-	"CC = g++" \
-	"CFLAGS = -fPIC -O3" \
-	"MAKELIB = ld -assert pure-text -o" \
 	"RANLIB = true"
 
