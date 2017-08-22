@@ -131,6 +131,7 @@ namespace dgc {
 
       int N  = NumPoints();
       int K = 20; // number of closest points to use for local covariance estimate
+      if (K > N) K = N;
       double mean[3];
       
       ANNpoint query_point = annAllocPt(3);
